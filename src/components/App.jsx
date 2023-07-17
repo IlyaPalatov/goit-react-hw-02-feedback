@@ -1,46 +1,9 @@
 import React, { useState } from 'react';
+import Statistics from './Statistics';
+import FeedbackOptions from './FeedbackOptions';
+import Section from './Section';
+import Notification from './Notification';
 import '../styles.css';
-
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
-  return (
-    <div className="statistics">
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {total}</p>
-      <p>Positive Feedback: {positivePercentage}%</p>
-    </div>
-  );
-};
-
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  return (
-    <div className="feedback-options">
-      {options.map(option => (
-        <button
-          key={option}
-          onClick={() => onLeaveFeedback(option)}
-          className="feedback-button"
-        >
-          {option}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-const Section = ({ title, children }) => {
-  return (
-    <div className="section">
-      <h1>{title}</h1>
-      {children}
-    </div>
-  );
-};
-
-const Notification = ({ message }) => {
-  return <p className="notification">{message}</p>;
-};
 
 export const App = () => {
   const [feedback, setFeedback] = useState({
